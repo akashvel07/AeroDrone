@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <meta name="description" content="Aero - Intelligent autonomous systems designed to perceive, decide and respond in real time." />
+    <meta name="keywords" content="aerospace, autonomy, edge AI, drones, UAV, surveillance" />
+    <meta name="theme-color" content="#050505" />
+
+    <!-- OpenGraph / Social Media -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://aero-autonomy.example.com/" />
+    <meta property="og:title" content="Aero - Autonomy Built For The Real World" />
+    <meta property="og:description" content="Intelligent autonomous systems designed to perceive, decide and respond in real time." />
+    <meta property="og:image" content="/vite.svg" /> <!-- Placeholder -->
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Aero - Autonomy Built For The Real World" />
+    <meta name="twitter:description" content="Intelligent autonomous systems designed to perceive, decide and respond in real time." />
+    <meta name="twitter:image" content="/vite.svg" />
+
+    <title>Aero - Autonomy Built For The Real World</title>
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/style.css">
+  </head>
+  <body class="loading">
+    <!-- Visual Noise Overlay (Aesthetic) -->
+    <div class="noise-overlay" aria-hidden="true"></div>
+
+    <!-- 3D Canvas (Decorative) -->
+    <canvas id="webgl-canvas" aria-hidden="true" role="presentation"></canvas>
+
+    <!-- Boot Sequence -->
+    <div id="boot-sequence" class="boot-sequence" role="status" aria-live="polite">
+      <div class="boot-content">
+        <div class="boot-line" data-i18n="boot.initializing">INITIALIZING SYSTEM... <span id="load-progress">0%</span></div>
+        <div class="boot-line status-check">_</div>
+        <div class="boot-line status-check">_</div>
+        <div class="boot-line status-check">_</div>
+        <div class="boot-line status-check">_</div>
+        <div class="boot-line status-check">_</div>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <header class="main-header">
+      <nav class="main-nav" aria-label="Main Navigation">
+        <div class="nav-left">
+          <a href="/" class="logo" aria-label="Aero Homepage">AERO</a>
+        </div>
+        <div class="nav-center">
+          <a href="#platform" data-i18n="nav.platform">Platform</a>
+          <a href="#technology" data-i18n="nav.technology">Technology</a>
+          <a href="#missions" data-i18n="nav.missions">Missions</a>
+          <a href="#about" data-i18n="nav.about">About</a>
+          <a href="#careers" data-i18n="nav.careers">Careers</a>
+        </div>
+        <div class="nav-right">
+          <!-- Language Switcher -->
+          <button id="lang-toggle" class="lang-btn" aria-label="Toggle language to Spanish">ES</button>
+          <a href="#contact" class="nav-cta" data-i18n="nav.contact">CONTACT &rarr;</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Hero Section -->
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-bg" aria-hidden="true">
+          <div class="hero-overlay"></div>
+        </div>
+        
+        <div class="hero-content">
+          <h1 id="hero-title" class="hero-title">
+            <span class="line"><span class="word" data-i18n="hero.line1">AUTONOMY</span></span>
+            <span class="line"><span class="word" data-i18n="hero.line2">BUILT FOR</span></span>
+            <span class="line"><span class="word" data-i18n="hero.line3">THE REAL WORLD.</span></span>
+          </h1>
+          <p class="hero-subtitle" data-i18n="hero.subtitle">Intelligent autonomous systems designed to perceive, decide and respond in real time.</p>
+          
+          <div class="hero-ctas">
+            <a href="#platform" class="btn primary" data-i18n="hero.ctaPrimary">EXPLORE PLATFORM &rarr;</a>
+            <a href="#video" class="btn secondary" data-i18n="hero.ctaSecondary">WATCH SYSTEM &rarr;</a>
+          </div>
+        </div>
+
+        <aside class="hud-container" aria-label="System Telemetry">
+          <div class="hud-title" data-i18n="hud.title">SYSTEM INITIALIZATION</div>
+          <div class="hud-item"><span class="hud-label" data-i18n="hud.airframe">AIRFRAME</span><span class="hud-value active" data-i18n="hud.online">ONLINE</span></div>
+          <div class="hud-item"><span class="hud-label" data-i18n="hud.vision">VISION</span><span class="hud-value active" data-i18n="hud.active">ACTIVE</span></div>
+          <div class="hud-item"><span class="hud-label" data-i18n="hud.aiCore">AI CORE</span><span class="hud-value active" data-i18n="hud.active">ACTIVE</span></div>
+          <div class="hud-item"><span class="hud-label" data-i18n="hud.telemetry">TELEMETRY</span><span class="hud-value active" data-i18n="hud.connected">CONNECTED</span></div>
+          <div class="hud-item"><span class="hud-label" data-i18n="hud.gps">GPS</span><span class="hud-value active" data-i18n="hud.locked">LOCKED</span></div>
+          <div class="hud-coords">LAT 34.0522 N / LON 118.2437 W</div>
+        </aside>
+      </section>
+
+      <!-- Mission Section -->
+      <section class="missions-section" id="missions" aria-labelledby="missions-title">
+        <header class="missions-header">
+          <h2 id="missions-title" data-i18n="missions.title">ONE PLATFORM.<br>MANY MISSIONS.</h2>
+        </header>
+        <div class="missions-container">
+          <article class="mission-panel">
+            <div class="mission-number">01</div>
+            <div class="mission-image" aria-hidden="true">
+              <img src="/wildfire.jpg" alt="Wildfire Response" />
+            </div>
+            <div class="mission-info">
+              <h3 data-i18n="missions.m1.title">WILDFIRE RESPONSE</h3>
+              <p data-i18n="missions.m1.desc">Rapid deployment in high-risk environments to provide critical aerial intelligence.</p>
+              <div class="mission-data">
+                <span>TEMP: 450°C</span>
+                <span>ALT: 15,000 FT</span>
+              </div>
+            </div>
+          </article>
+          <article class="mission-panel">
+            <div class="mission-number">02</div>
+            <div class="mission-image" aria-hidden="true">
+              <img src="/infrastructure.jpg" alt="Critical Infrastructure" />
+            </div>
+            <div class="mission-info">
+              <h3 data-i18n="missions.m2.title">CRITICAL INFRASTRUCTURE</h3>
+              <p data-i18n="missions.m2.desc">Automated inspection and perimeter security for high-value assets.</p>
+              <div class="mission-data">
+                <span>SCAN RATE: 99.9%</span>
+                <span>UAS DETECT: ACTIVE</span>
+              </div>
+            </div>
+          </article>
+          <article class="mission-panel">
+            <div class="mission-number">03</div>
+            <div class="mission-image" aria-hidden="true">
+              <img src="/surveillance.jpg" alt="Remote Surveillance" />
+            </div>
+            <div class="mission-info">
+              <h3 data-i18n="missions.m3.title">REMOTE SURVEILLANCE</h3>
+              <p data-i18n="missions.m3.desc">Persistent overwatch in denied environments with edge AI processing.</p>
+              <div class="mission-data">
+                <span>ENDURANCE: 24H+</span>
+                <span>DATALINK: SECURE</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Product Section -->
+      <section class="product-section" id="platform" aria-labelledby="product-title">
+        <h2 id="product-title" class="product-title" data-i18n="product.title">ENGINEERED<br>FOR AUTONOMY.</h2>
+        <div class="product-visual" aria-hidden="true">
+          <!-- Terrain Mapping Visuals -->
+          <div class="terrain-container">
+            <div class="terrain-grid"></div>
+            <div class="terrain-contour"></div>
+            <div class="radar-scan"></div>
+          </div>
+
+          <!-- Aircraft annotations -->
+          <div class="annotation" style="top: 20%; left: 30%;">
+            <div class="dot"></div>
+            <div class="label" data-i18n="product.ann1">500 KM/H</div>
+          </div>
+          <div class="annotation" style="top: 40%; left: 70%;">
+            <div class="dot"></div>
+            <div class="label" data-i18n="product.ann2">VTOL</div>
+          </div>
+          <div class="annotation" style="top: 60%; left: 40%;">
+            <div class="dot"></div>
+            <div class="label" data-i18n="product.ann3">MULTI-SENSOR</div>
+          </div>
+          <div class="annotation" style="top: 70%; left: 80%;">
+            <div class="dot"></div>
+            <div class="label" data-i18n="product.ann4">EDGE AI</div>
+          </div>
+        </div>
+
+        <div class="specs-interactive" role="list">
+          <div class="spec-item" data-target="speed" role="listitem" tabindex="0">
+            <div class="spec-label" data-i18n="product.spec1Label">SPEED</div>
+            <div class="spec-value" data-i18n="product.spec1Value">500 KM/H</div>
+          </div>
+          <div class="spec-item" data-target="range" role="listitem" tabindex="0">
+            <div class="spec-label" data-i18n="product.spec2Label">RANGE</div>
+            <div class="spec-value" data-i18n="product.spec2Value">500+ KM</div>
+          </div>
+          <div class="spec-item" data-target="endurance" role="listitem" tabindex="0">
+            <div class="spec-label" data-i18n="product.spec3Label">ENDURANCE</div>
+            <div class="spec-value" data-i18n="product.spec3Value">24 HRS</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- AI Command Section -->
+      <section class="ai-section" id="technology" aria-labelledby="ai-title">
+        <h2 id="ai-title" class="ai-title" data-i18n="ai.title">INTELLIGENCE<br>AT THE EDGE.</h2>
+        <div class="ai-dashboard">
+          <div class="map-view" aria-label="Interactive Mission Map" role="img">
+            <div class="map-grid"></div>
+            
+            <!-- Map Data Overlays -->
+            <div class="map-data-top-left">
+              <div>LAT: 34.0522° N</div>
+              <div>LON: 118.2437° W</div>
+            </div>
+            <div class="map-data-top-right">
+              <div>ALT: 14,500 FT</div>
+              <div>SPD: 0.8 MACH</div>
+            </div>
+            <div class="map-data-bottom-left">
+              <div>SYS: ONLINE</div>
+              <div>DATALINK: SECURE</div>
+            </div>
+            
+            <!-- Crosshair -->
+            <div class="crosshair-h"></div>
+            <div class="crosshair-v"></div>
+            <div class="crosshair-center"></div>
+
+            <!-- Targets -->
+            <div class="target-marker" style="top: 30%; left: 40%;">
+              <div class="target-ring"></div>
+              <div class="target-label">[TRK_01] 98%</div>
+            </div>
+            <div class="target-marker" style="top: 70%; left: 70%;">
+              <div class="target-ring"></div>
+              <div class="target-label">[TRK_02] 85%</div>
+            </div>
+            <div class="target-marker" style="top: 20%; left: 80%;">
+              <div class="target-ring"></div>
+              <div class="target-label">[TRK_03] 99%</div>
+            </div>
+            
+            <div class="map-scanline"></div>
+          </div>
+          <aside class="dashboard-sidebar">
+            <div class="dash-panel">
+              <h4 data-i18n="ai.events">SYSTEM EVENTS</h4>
+              <ul class="event-list">
+                <li data-i18n="ai.event1">14:02:11 - TARGET ACQUIRED</li>
+                <li data-i18n="ai.event2">14:02:15 - TRAJECTORY COMPUTED</li>
+                <li data-i18n="ai.event3">14:02:40 - DATALINK SYNC</li>
+              </ul>
+            </div>
+            <div class="dash-panel">
+              <h4 data-i18n="hud.telemetry">TELEMETRY</h4>
+              <div class="telemetry-grid">
+                <div>PITCH: 2.4&deg;</div>
+                <div>YAW: -0.1&deg;</div>
+                <div>ROLL: 0.0&deg;</div>
+                <div>PWR: 84%</div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- Technology Layers -->
+      <section class="tech-layers" aria-label="Technology Stack">
+        <div class="layer" data-layer="1" data-i18n="tech.layer1">SENSORS</div>
+        <div class="layer-arrow" aria-hidden="true">&darr;</div>
+        <div class="layer" data-layer="2" data-i18n="tech.layer2">PERCEPTION</div>
+        <div class="layer-arrow" aria-hidden="true">&darr;</div>
+        <div class="layer" data-layer="3" data-i18n="tech.layer3">AI</div>
+        <div class="layer-arrow" aria-hidden="true">&darr;</div>
+        <div class="layer" data-layer="4" data-i18n="tech.layer4">DECISION</div>
+        <div class="layer-arrow" aria-hidden="true">&darr;</div>
+        <div class="layer" data-layer="5" data-i18n="tech.layer5">AUTONOMY</div>
+        <div class="layer-arrow" aria-hidden="true">&darr;</div>
+        <div class="layer" data-layer="6" data-i18n="tech.layer6">MISSION</div>
+      </section>
+
+      <!-- Operations Section -->
+      <section class="operations-section" aria-labelledby="ops-title">
+        <div class="ops-bg placeholder" aria-hidden="true"></div>
+        <div class="ops-overlay">
+          <h2 id="ops-title" data-i18n="ops.title">REAL SYSTEMS.<br>REAL MISSIONS.</h2>
+          <div class="ops-hud">
+            [SYS_OP_NORMAL] | [LINK_SECURE]
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Contact Footer -->
+    <footer class="contact-footer" id="contact" aria-labelledby="footer-title">
+      <div class="footer-content">
+        <h2 id="footer-title" class="footer-title" data-i18n="footer.title">READY TO<br>DEPLOY?</h2>
+        <a href="#" class="contact-btn" data-i18n="footer.cta">CONTACT US &rarr;</a>
+      </div>
+    </footer>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
