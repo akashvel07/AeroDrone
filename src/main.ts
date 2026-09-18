@@ -1,3 +1,4 @@
+/// <reference types="vite-plugin-pwa/client" />
 import './style.css'
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
@@ -19,7 +20,6 @@ const lenis = new Lenis({
   gestureOrientation: 'vertical',
   smoothWheel: true,
   wheelMultiplier: 1,
-  smoothTouch: false,
   touchMultiplier: 2,
 })
 
@@ -225,7 +225,7 @@ function setupThreeJS(onLoadComplete: () => void) {
   const loader = new GLTFLoader();
   loader.load(
     '/fighter-jet-x-einheit-funf/source/Meshy_AI_Shadow_Wing_0909233125_texture.glb',
-    (gltf) => {
+    (gltf: any) => {
       const model = gltf.scene;
       // Scale and center the model appropriately
       model.scale.set(2.5, 2.5, 2.5); 
@@ -247,14 +247,14 @@ function setupThreeJS(onLoadComplete: () => void) {
         onLoadComplete();
       }, 200); 
     },
-    (xhr) => {
+    (xhr: any) => {
       // Update loading progress
       const percent = Math.round((xhr.loaded / xhr.total) * 100);
       if (progressEl && !isNaN(percent)) {
         progressEl.textContent = `${percent}%`;
       }
     },
-    (error) => {
+    (error: any) => {
       console.error('An error happened while loading the 3D model:', error);
       // Even on error, we should let the user in
       onLoadComplete();
